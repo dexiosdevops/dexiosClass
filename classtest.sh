@@ -1,3 +1,3 @@
 echo "this is classtest file"
-echo "Hello World"
+echo "Hello Class"
 echo "nothing to commit"
