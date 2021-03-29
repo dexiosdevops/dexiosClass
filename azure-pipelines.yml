@@ -12,6 +12,10 @@ pool:
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
+- script: echo $Name
+  displayName: 'Run a one-line script'
+  
+  
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
@@ -23,3 +27,9 @@ steps:
     connectedServiceNameSelector: 'connectedServiceNameARM'
     scriptLocation: 'scriptPath'
     scriptPath: 
+- task: Docker@0
+  inputs:
+    containerregistrytype: 'Azure Container Registry'
+    action: 'Build an image'
+    dockerFile: '**/Dockerfile'
+    imageName: '$(Build.Repository.Name):$(Build.BuildId)'
